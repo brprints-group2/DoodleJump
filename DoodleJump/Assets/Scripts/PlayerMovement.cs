@@ -43,5 +43,10 @@ public class PlayerMovement : MonoBehaviour
             print("jump");
             rb.velocity = new Vector3(rb.velocity.x, jumpSpeed, rb.velocity.z);
         }
+
+        //map bounds
+        transform.position = Util.setX(transform.position, 
+            Mathf.Clamp(transform.position.x, -0.5f*GameManager.Instance.MapWidth, 0.5f * GameManager.Instance.MapWidth)
+        );
     }
 }
